@@ -33,10 +33,12 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
-    'django.contrib.contenttypes',
+    'django.contrib.contenttypes'
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'debug_toolbar'
+    'recipe.apps.RecipeConfig',
 ]
 
 MIDDLEWARE = [
@@ -47,7 +49,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
+
+INTERNAL_IPS = ['127.0.0.1']
 
 ROOT_URLCONF = 'funky_recipe.urls'
 
