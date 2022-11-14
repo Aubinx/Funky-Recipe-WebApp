@@ -10,4 +10,4 @@ class Recette(models.Model):
 class Ingredient(models.Model):
     id_ing = models.IntegerField(unique=True)
     name_ing = models.CharField()
-    id_rec = models.ManyToManyField(Recette)
+    id_rec = models.ManyToManyField(Recette) 
