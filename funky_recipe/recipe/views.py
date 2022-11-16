@@ -12,7 +12,7 @@ def recetteroulette(request):
     template = loader.get_template("./recipe/recetteroulette.html")
     return HttpResponse(template.render(request=request))
 
-def rrresults(request, s):
+def results(request, s):
     l = [int(i) for i in s.split('-')]
     results = [Recette.objects.get(id=i) for i in l]
     names = [i.name for i in results]
