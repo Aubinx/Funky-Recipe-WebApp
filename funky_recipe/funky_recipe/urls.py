@@ -23,7 +23,7 @@ urlpatterns = [
     path('recetteroulette/', recipe.views.recetteroulette),
     path(r'recetteroulette/results/<str:s>', recipe.views.results),
     path('recipe/', include('recipe.urls')),
-    path('about/', recipe.views.about)
+    path('about/', recipe.views.about),
     re_path(r'^$', recipe.views.index, name='index'),
 ]
 

@@ -28,3 +28,7 @@ def results(request, s):
         names[i]+='<br>'+ingredients[i].capitalize()+'<br>'+'<br>'
     message = '<ul><li>'+'<li>'.join(names)+'</ul>'
     return HttpResponse(message)
+
+def about(request):
+    template = loader.get_template("./recipe/about.html")
+    return HttpResponse(template.render(request=request))
