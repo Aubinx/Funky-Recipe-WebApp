@@ -8,6 +8,7 @@ def index(request):
     template = loader.get_template("./recipe/index.html")
     return HttpResponse(template.render(request=request))
 
+def ordre(x): return x[1]
 
 def recetteroulette(request):
     if request.GET=={} or (request.GET['i1']=='' and request.GET['i2']=='' and request.GET['i3']=='' and request.GET['i4']=='' and request.GET['i5']==''):
@@ -28,7 +29,9 @@ def recetteroulette(request):
                 if k not in [j.id for j in i.id_ing.all()]:
                     b = False
             if b:
-                id_r.append(str(i.id))    
+                id_r.append((str(i.id),len(i.id_ing.all())))   
+        id_r.sort(key=ordre) 
+        id_r = [i[0] for i in id_r]
         results = [Recette.objects.get(id=i) for i in id_r]
         names = [i.name for i in results]
         links = [i.link for i in results]
@@ -41,8 +44,9 @@ def recetteroulette(request):
         for i in range(len(names)):
             names[i]='<a href='+links[i]+'><strong>'+names[i]+'</strong></a>'
             names[i]+='<br>'+ingredients[i].capitalize()+'<br>'+'<br>'
-        message = '<ul><li>'+'<li>'.join(names)+'</ul>'
-        return HttpResponse(message)
+        m1 = '<strong>Vous avez entré les ingrédients :</strong>'+'<ul><li>'+'<li>'.join(l)+'</ul>'
+        m2 = '<strong>Nous vous proposons les recettes suivantes :</strong>'+'<ul><li>'+'<li>'.join(names)+'</ul>'
+        return HttpResponse(m1+m2)
 
 def results(request, s):
     l = [int(i) for i in s.split('-')]
