@@ -21,6 +21,7 @@ import recipe.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('recetteroulette/', recipe.views.recetteroulette),
+    path(r'recetteroulette/results/<str:s>', recipe.views.rrresults),
     path('recipe/', include('recipe.urls')),
     re_path(r'^$', recipe.views.index, name='index'),
 ]
