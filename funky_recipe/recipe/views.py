@@ -64,3 +64,8 @@ def results(request, s):
 def about(request):
     template = loader.get_template("./recipe/about.html")
     return HttpResponse(template.render(request=request))
+
+def contact(request):
+    template = loader.get_template("./recipe/contact.html")
+    return HttpResponse(template.render(request=request))
+

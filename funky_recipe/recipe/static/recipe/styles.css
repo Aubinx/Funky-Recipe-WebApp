@@ -11285,4 +11285,13 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
+
+  .imagedroite {
+    position: relative;
+    width: 10%;
+  }
+
+  .grandetaille {
+    font-size: 3em;
+  }
 }

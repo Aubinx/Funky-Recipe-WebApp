@@ -24,6 +24,7 @@ urlpatterns = [
     path(r'recetteroulette/results/<str:s>', recipe.views.results),
     path('recipe/', include('recipe.urls')),
     path('about/', recipe.views.about),
+    path('contact/', recipe.views.contact),
     re_path(r'^$', recipe.views.index, name='index'),
 ]
 
