@@ -43,9 +43,9 @@ si vous avez des questions sur les contraintes requises pour etre contributeur a
 
 ## Recettes favorites de l'equipe
 
-Maxence : Risotto aux aubergines/asperges
-Eléonore : Tartine d'automne
-William : Tarte tatin aux poireaux
-Margot : Tarte tatin aux pommes caramélisées
-Aubin : grana padano au 
-Walid : gateau au citron
++ Maxence : Risotto aux aubergines/asperges
++ Eléonore : Tartine d'automne
++ William : Tarte tatin aux poireaux
++ Margot : Tarte tatin aux pommes caramélisées
++ Aubin : grana padano au 
++ Walid : gateau au citron
