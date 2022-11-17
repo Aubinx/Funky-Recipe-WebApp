@@ -8,4 +8,5 @@ class Ingredient(models.Model):
 class Recette(models.Model):
     name = models.CharField(max_length=200)
     link = models.CharField(max_length=200)
+    cat = models.CharField(max_length=200)
     id_ing = models.ManyToManyField(Ingredient)
