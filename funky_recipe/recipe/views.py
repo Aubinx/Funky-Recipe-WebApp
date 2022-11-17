@@ -92,7 +92,7 @@ def addrecipe(request):
         d = request.GET
         (a,b,c)=(d['nom'],d['ing'],d['lien'])
         l = b.split(', ')
-        m1 = "<strong style='font-size: 3em'>"+a+"</strong><br>"
+        m1 = "<strong style='font-size: 2em'>"+a+"</strong><br><br>"
         m2 = '<strong>Vous avez entré les ingrédients :</strong>'+'<ul><li>'+'<li>'.join(l)+'</ul>'
         m3 = "<br>"+c
         m = '<div style="font-family: system-ui">'+m1+m2+m3+'</div>'
