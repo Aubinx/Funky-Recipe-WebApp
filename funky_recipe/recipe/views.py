@@ -96,8 +96,20 @@ def contact(request):
 
 
 def gastronotrip(request):
-    template = loader.get_template("./recipe/gastronotrip.html")
-    return HttpResponse(template.render(request=request))
+    if request.GET == {}:
+        template = loader.get_template("./recipe/gastronotrip.html")
+        return HttpResponse(template.render(request=request))
+    else:
+        pays = request.GET['my_html_select_box']
+        if pays == 'Italie':
+            template = loader.get_template("./recipe/italie.html")
+            return HttpResponse(template.render(request=request))
+        if pays == 'Maroc':
+            template = loader.get_template("./recipe/maroc.html")
+            return HttpResponse(template.render(request=request))
+        if pays == 'Mexique':
+            template = loader.get_template("./recipe/mexique.html")
+            return HttpResponse(template.render(request=request))
 
 
 def addrecipe(request):
