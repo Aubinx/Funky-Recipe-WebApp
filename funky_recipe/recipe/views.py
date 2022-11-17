@@ -45,6 +45,7 @@ def recetteroulette(request):
             ingredients1.append(k)
         ingredients = [', '.join(i) for i in ingredients1]
         ln = len(names)
+        m3 = '<a href="http://127.0.0.1:8000/recetteroulette/"><input type="button" value="Faire une autre recherche"></a>'
         for i in range(ln):
             names[i] = '<a href='+links[i]+'><strong>'+names[i]+'</strong></a>'
             names[i] += '<br>'+ingredients[i].capitalize()+'<br>'+'<br>'
@@ -62,7 +63,7 @@ def recetteroulette(request):
             else:
                 m2 = f'<strong>Nous vous proposons les {ln} recettes suivantes :</strong>' + \
                     '<ul><li>'+'<li>'.join(names)+'</ul>'
-        m = '<div style="font-family: system-ui">'+m1+m2+'</div>'
+        m = '<div style="font-family: system-ui">'+m1+m2+m3+'</div>'
         return HttpResponse(m)
 
 
