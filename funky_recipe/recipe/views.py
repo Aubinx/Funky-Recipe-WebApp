@@ -41,12 +41,23 @@ def recetteroulette(request):
             k=[j.name for j in i]
             ingredients1.append(k)
         ingredients = [', '.join(i) for i in ingredients1]
-        for i in range(len(names)):
+        ln = len(names)
+        for i in range(ln):
             names[i]='<a href='+links[i]+'><strong>'+names[i]+'</strong></a>'
             names[i]+='<br>'+ingredients[i].capitalize()+'<br>'+'<br>'
-        m1 = '<strong>Vous avez entré les ingrédients :</strong>'+'<ul><li>'+'<li>'.join(l)+'</ul>'
-        m2 = '<strong>Nous vous proposons les recettes suivantes :</strong>'+'<ul><li>'+'<li>'.join(names)+'</ul>'
-        return HttpResponse(m1+m2)
+        if len(id_i) == 0 :
+            m1 = "Malheureusement, aucun de vos ingrédients n'est valide :( <br>Essayez avec d'autres ingrédients !"
+            m2 = ''
+        else:
+            m1 = '<strong>Vous avez entré les ingrédients :</strong>'+'<ul><li>'+'<li>'.join(l)+'</ul>'
+            if ln == 0 :
+                m2 = "Malheureusement, aucune de nos recettes ne contient tous vos ingrédients :( <br>Essayez avec d'autres ingrédients !"
+            elif ln == 1 :
+                '<strong>Nous vous proposons la recette suivantes :</strong>'+'<ul><li>'+'<li>'.join(names)+'</ul>'
+            else:
+                m2 = f'<strong>Nous vous proposons les {ln} recettes suivantes :</strong>'+'<ul><li>'+'<li>'.join(names)+'</ul>'
+        m = '<div style="font-family: system-ui">'+m1+m2+'</div>'
+        return HttpResponse(m)
 
 def results(request, s):
     l = [int(i) for i in s.split('-')]
@@ -73,3 +84,16 @@ def contact(request):
     template = loader.get_template("./recipe/contact.html")
     return HttpResponse(template.render(request=request))
 
+def addrecipe(request):
+    if request.GET=={} or (request.GET['nom']=='' and request.GET['lien']=='' and request.GET['ing']==''):
+        template = loader.get_template("./recipe/addrecipe.html")
+        return HttpResponse(template.render(request=request))
+    else:
+        d = request.GET
+        (a,b,c)=(d['nom'],d['ing'],d['lien'])
+        l = b.split(', ')
+        m1 = "<strong style='font-size: 3em'>"+a+"</strong><br>"
+        m2 = '<strong>Vous avez entré les ingrédients :</strong>'+'<ul><li>'+'<li>'.join(l)+'</ul>'
+        m3 = "<br>"+c
+        m = '<div style="font-family: system-ui">'+m1+m2+m3+'</div>'
+        return HttpResponse(m)
