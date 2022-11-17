@@ -53,7 +53,7 @@ def recetteroulette(request):
             if ln == 0 :
                 m2 = "Malheureusement, aucune de nos recettes ne contient tous vos ingrédients :( <br>Essayez avec d'autres ingrédients !"
             elif ln == 1 :
-                '<strong>Nous vous proposons la recette suivantes :</strong>'+'<ul><li>'+'<li>'.join(names)+'</ul>'
+                m2 = '<strong>Nous vous proposons la recette suivantes :</strong>'+'<ul><li>'+'<li>'.join(names)+'</ul>'
             else:
                 m2 = f'<strong>Nous vous proposons les {ln} recettes suivantes :</strong>'+'<ul><li>'+'<li>'.join(names)+'</ul>'
         m = '<div style="font-family: system-ui">'+m1+m2+'</div>'
