@@ -23,7 +23,6 @@ urlpatterns = [
     path('recetteroulette/', recipe.views.recetteroulette),
     path('addrecipe/', recipe.views.addrecipe),
     path('gastronotrip/', recipe.views.gastronotrip),
-    path(r'recetteroulette/results/<str:s>', recipe.views.results),
     path('recipe/', include('recipe.urls')),
     path('about/', recipe.views.about),
     path('contact/', recipe.views.contact),

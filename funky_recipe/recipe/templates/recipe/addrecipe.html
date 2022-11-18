@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>FUNKY-Recette Roulette</title>
+    <title>FUNKY-Add recipe</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Core theme CSS (includes Bootstrap)-->
@@ -35,28 +35,26 @@
     <div class="container px-4 px-lg-5">
         <!-- Heading Row-->
         <div class="row gx-4 gx-lg-5 align-items-center my-5">
-            <h1 class="font-weight-light">Fais croquer ! Ajoute une recette !</h1>
-            <p>Entre le nom, les ingrédients et le lien de votre recette ! Et c'est parti pour la régalade !</p>
-        </div>
-        <div class="col-lg-12 detail-separator">
+            <h1 class="font-weight-light">Fais croquer et ajoute une recette ! <br><br></h1>
+            <p>Entrez le nom, les ingrédients et la description de votre recette ! C'est parti pour la régalade !</p>
             <form method="get" accept-charset="utf-8">
               <div class="form-group">
                 <br>
-                <p>Nom </p>
+                <p><strong>Nom</strong> </p>
                 <input id="searchForm" class="form-control" name="nom">
                 <br>
-                <p>Ingrédients (séparés par une virgule) </p>
+                <p><strong>Ingrédients<i> (séparés par une virgule)</i> </strong></p>
                 <input id="searchForm" class="form-control" name="ing">
                 <br>
-                <p>Description </p>
+                <p><strong>Description </strong></p>
                 <input id="searchForm" class="form-control" name="lien">
                 <br>
-              </div>
-              <div class="col-md-6 col-md-offset-3 text-center">
+                <a class="btn btn-primary" href="http://127.0.0.1:8000/"> Annuler </a>
                 <button type="submit" class="btn btn-primary" >Ajouter la recette</button>
               </div>
             </form>
         </div>
+    </div>    
     <!-- Footer-->
     <br>
     <footer class="py-5 bg-dark">

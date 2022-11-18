@@ -1,4 +1,6 @@
 {% load static %}
+{% load roulettetag %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>FUNKY-Recette Roulette</title>
+    <title>FUNKY-Résultats</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/logov2.ico" />
     <!-- Core theme CSS (includes Bootstrap)-->
@@ -16,7 +18,7 @@
 
 <body>
     <!-- Responsive navbar-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container px-5">
             <a class="navbar-brand" href="http://127.0.0.1:8000/">FUNKY RECIPE</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -24,9 +26,8 @@
                 aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page"
-                            href="http://127.0.0.1:8000/">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:8000/about/">À propos</a></li>
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="http://127.0.0.1:8000/">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="http://127.0.0.1:8000/about/">À propos</a></li>
                     <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:8000/contact/">Contact</a></li>
                 </ul>
             </div>
@@ -36,40 +37,16 @@
     <div class="container px-4 px-lg-5">
         <!-- Heading Row-->
         <div class="row gx-4 gx-lg-5 align-items-center my-5">
-            <div class="col-lg-5">
-                <h1 class="font-weight-light">Recette Roulette</h1>
-                <p>Le principe est simple : renseignez vos ingrédients et trouvez LA recette idéale pour vous !</p>
+            <div class="col-lg-7">
+                <h1 class="font-weight-light">Résultats</h1>
+                <br>
+                {% resultsroulette as message %}
+                {{message|safe|escape}}
+            <br>
             </div>
         </div>
-        <div class="col-lg-12 detail-separator">
-            <form method="get" accept-charset="utf-8">
-              <div class="form-group">
-                <label for="searchForm" class="col-md-6 col-md-offset-3 text-center"><strong>Insérez vos ingrédients</strong> :</label>
-                <br>
-                <br>
-                <p>Ingrédient 1 </p>
-                <input id="searchForm" class="form-control" name="i1">
-                <br>
-                <p>Ingrédient 2 </p>
-                <input id="searchForm" class="form-control" name="i2">
-                <br>
-                <p>Ingrédient 3 </p>
-                <input id="searchForm" class="form-control" name="i3">
-                <br>
-                <p>Ingrédient 4 </p>
-                <input id="searchForm" class="form-control" name="i4">
-                <br>
-                <p>Ingrédient 5 </p>
-                <input id="searchForm" class="form-control" name="i5">
-                <br>
-              </div>
-              <div class="col-md-6 col-md-offset-3 text-center">
-                <a class="btn btn-primary" href="http://127.0.0.1:8000/"> Annuler </a>
-                <button type="submit" class="btn btn-primary" >Générer</button>
-              </div>
-            </form>
-        </div>
     </div>
+    <br>
     <!-- Footer-->
     <br>
     <footer class="py-5 bg-dark">
